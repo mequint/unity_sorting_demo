@@ -22,8 +22,8 @@ namespace Sorting
         public List<AbstractSort> SortTypes { get; } = new List<AbstractSort>
         {
             new BubbleSort(),
-            new SelectionSort()
-            //new InsertionSort()
+            new SelectionSort(),
+            new InsertionSort()
         };
 
         protected void Start()
