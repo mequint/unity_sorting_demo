@@ -20,10 +20,9 @@ namespace Sorting.Sorts
                         Swap(units, j, j + 1);
 
                         yield return new WaitForSeconds(time);
-                    }
 
-                    units[j].Compared = false;
-                    units[j+1].Compared = false;
+                        SetCompared(units, false);
+                    }
                 }
 
                 units[units.Count - i - 1].Sorted = true;
@@ -32,6 +31,18 @@ namespace Sorting.Sorts
             units.First().Sorted = true;
 
             SortComplete?.Invoke();
+        }
+
+        private void Swap(List<SortUnit> units, int leftIndex, int rightIndex)
+        {
+            var temp = units[leftIndex];
+            units[leftIndex] = units[rightIndex];
+            units[rightIndex] = temp;
+
+            IncreaseAssignmentCount?.Invoke(2);
+
+            FixVisualization?.Invoke(leftIndex);
+            FixVisualization?.Invoke(rightIndex);            
         }
     }
 }

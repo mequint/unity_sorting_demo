@@ -21,9 +21,9 @@ namespace Sorting.Sorts
                         minIndex = j;
                         
                         yield return new WaitForSeconds(time);
-                    }
 
-                    units[j].Compared = false;
+                        SetCompared(units, false);
+                    }
                 }
 
                 Swap(units, i, minIndex);
@@ -31,6 +31,18 @@ namespace Sorting.Sorts
             }
 
             SortComplete?.Invoke();
+        }
+
+        private void Swap(List<SortUnit> units, int leftIndex, int rightIndex)
+        {
+            var temp = units[leftIndex];
+            units[leftIndex] = units[rightIndex];
+            units[rightIndex] = temp;
+
+            IncreaseAssignmentCount?.Invoke(2);
+
+            FixVisualization?.Invoke(leftIndex);
+            FixVisualization?.Invoke(rightIndex);            
         }
     }
 }

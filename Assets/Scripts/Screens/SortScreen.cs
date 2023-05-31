@@ -8,20 +8,20 @@ public class SortScreen : MonoBehaviour
     [SerializeField] private Sorter _sorter;
     
     [SerializeField] private TMP_Text _comparisonsCountText;
-    [SerializeField] private TMP_Text _swapsCountText;
+    [SerializeField] private TMP_Text _assignmentsCountText;
     [SerializeField] private TMP_Dropdown _sortTypeDropdown;
 
     private float _swapTime = 0.1f;
 
     private SortData _sortData;
-
     private string _sortOption;
     
     protected void Awake()
     {
         _sortData = new SortData();
+        
         _sorter.IncreaseComparisonCount += IncreaseComparisonCount;
-        _sorter.IncreaseSwapCount += IncreaseSwapCount;
+        _sorter.IncreaseAssignmentCount += IncreaseAssignmentsCount;
 
         _sortTypeDropdown.ClearOptions();
         
@@ -31,6 +31,8 @@ public class SortScreen : MonoBehaviour
             options.Add(sort.Name);
         }
         _sortTypeDropdown.AddOptions(options);
+
+        _sortOption = _sortTypeDropdown.options[0].text;
     }
 
     public void IncreaseComparisonCount()
@@ -39,10 +41,10 @@ public class SortScreen : MonoBehaviour
          _comparisonsCountText.SetText($"{_sortData.Comparisons}");
     }
 
-    public void IncreaseSwapCount()
+    public void IncreaseAssignmentsCount(int count)
     {
-        _sortData.Swaps++;
-         _swapsCountText.SetText($"{_sortData.Swaps}");
+        _sortData.Assignments += count;
+         _assignmentsCountText.SetText($"{_sortData.Assignments}");
     }
 
     public void OnSortPressed()
@@ -60,11 +62,10 @@ public class SortScreen : MonoBehaviour
 
     public void OnResetPressed()
     {
-        StopAllCoroutines();
+        _sorter.Reset();
         _sortData.Reset();
         _comparisonsCountText.SetText($"{_sortData.Comparisons}");
-        _swapsCountText.SetText($"{_sortData.Swaps}");
-        _sorter.Reset();
+        _assignmentsCountText.SetText($"{_sortData.Assignments}");
     }
 
     public void OnSortDropdownValueChanged(int index)

@@ -9,7 +9,7 @@ namespace Sorting
     public class Sorter : MonoBehaviour
     {
         public Action IncreaseComparisonCount { get; set; }
-        public Action IncreaseSwapCount { get; set; }
+        public Action<int> IncreaseAssignmentCount { get; set; }
 
         [SerializeField] private SortUnit _sortUnit;
         [SerializeField] private int _values;
@@ -23,6 +23,7 @@ namespace Sorting
         {
             new BubbleSort(),
             new SelectionSort()
+            //new InsertionSort()
         };
 
         protected void Start()
@@ -45,16 +46,18 @@ namespace Sorting
             {
                 sort.FixVisualization += FixPosition;
                 sort.InrceaseComparisonCount = IncreaseComparisonCount;
-                sort.IncreaseSwapCount = IncreaseSwapCount;
+                sort.IncreaseAssignmentCount = IncreaseAssignmentCount;
                 sort.SortComplete += SortComplete;
             }
         }
 
         public void Reset()
         {
+            StopAllCoroutines();
+            
             Sorting = false;
 
-             for (int i = 1; i <= _units.Count; ++i)
+            for (int i = 1; i <= _units.Count; ++i)
             {
                 var position = new Vector3(IndexPosition(i - 1), i * _scaleValue / 2.0f, 0.0f);
                 var scale = new Vector3(_scaleValue, i * _scaleValue, _scaleValue); 

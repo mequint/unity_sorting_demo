@@ -41,7 +41,10 @@ public class SortUnit : MonoBehaviour
             }
             else
             {
-                _material.color = _defaultColor;
+                if (!Sorted)
+                {
+                    _material.color = _defaultColor;
+                }
             }
         }
     }

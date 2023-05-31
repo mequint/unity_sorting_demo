@@ -1666,7 +1666,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sorter: {fileID: 883050255}
   _comparisonsCountText: {fileID: 706801628}
-  _swapsCountText: {fileID: 2013309544}
+  _assignmentsCountText: {fileID: 2013309544}
   _sortTypeDropdown: {fileID: 764723922}
 --- !u!1 &784293562
 GameObject:
@@ -2642,7 +2642,7 @@ GameObject:
   - component: {fileID: 1455056060}
   - component: {fileID: 1455056059}
   m_Layer: 0
-  m_Name: Swaps Label
+  m_Name: Assignments Label
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2688,7 +2688,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Swaps
+  m_text: Assignments
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4065,7 +4065,7 @@ GameObject:
   - component: {fileID: 2013309545}
   - component: {fileID: 2013309544}
   m_Layer: 0
-  m_Name: Swaps Count Text
+  m_Name: Assignments Count Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
