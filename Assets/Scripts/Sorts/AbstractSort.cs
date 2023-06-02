@@ -14,7 +14,7 @@ namespace Sorting.Sorts
         public abstract string Name { get; }
         public abstract IEnumerator Execute(List<SortUnit> units, float time = 0);
 
-        protected bool Compare(SortUnit lhs, SortUnit rhs)
+        protected virtual bool Compare(SortUnit lhs, SortUnit rhs)
         {
             InrceaseComparisonCount?.Invoke();
             lhs.Compared = true;
