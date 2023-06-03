@@ -24,7 +24,8 @@ namespace Sorting
             new BubbleSort(),
             new SelectionSort(),
             new InsertionSort(),
-            new MergeSort()
+            new MergeSort(),
+            new QuickSort()
         };
 
         protected void Start()

@@ -11,7 +11,7 @@ public class SortScreen : MonoBehaviour
     [SerializeField] private TMP_Text _assignmentsCountText;
     [SerializeField] private TMP_Dropdown _sortTypeDropdown;
 
-    private float _swapTime = 0.1f;
+    [SerializeField] private float _waitTime = 0.1f;
 
     private SortData _sortData;
     private string _sortOption;
@@ -49,7 +49,7 @@ public class SortScreen : MonoBehaviour
 
     public void OnSortPressed()
     {
-        _sorter.Sort(_sortOption, _swapTime);
+        _sorter.Sort(_sortOption, _waitTime);
     }
 
     public void OnShufflePressed()
