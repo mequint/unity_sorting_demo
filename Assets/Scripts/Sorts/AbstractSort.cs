@@ -31,6 +31,14 @@ namespace Sorting.Sorts
             }
         }
 
+        protected void ClearCompares(List<SortUnit> units, int left, int right)
+        {
+            for (int index = left; index < right; ++index)
+            {
+                units[index].Compared = false;
+            }
+        }
+
         protected void SetSorted(List<SortUnit> units, bool sorted)
         {
             foreach (var unit in units)

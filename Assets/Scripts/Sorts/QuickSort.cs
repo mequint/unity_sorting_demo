@@ -26,7 +26,7 @@ namespace Sorting.Sorts
         private IEnumerator Partition(int low, int high, Action<int> onNextPivot)
         {
             SetCompared(_units, false);
-            
+
             var pivot = _units[high];
 
             var i = (low - 1);
@@ -48,13 +48,10 @@ namespace Sorting.Sorts
 
             Swap(i + 1, high);
 
-            
             if (onNextPivot != null)
             {
                 onNextPivot(i + 1);
             }
-
-            yield return null;
         }
 
         private IEnumerator Sort(int low, int high)

@@ -23,7 +23,7 @@ namespace Sorting.Sorts
 
         private IEnumerator Merge(int left, int middle, int right, int level = 0)
         {
-            ClearCompares(left, right);
+            ClearCompares(_units, left, right);
 
             var (leftArray, rightArray) = CreateSubArrays(left, middle, right);
 
@@ -125,14 +125,6 @@ namespace Sorting.Sorts
             }
 
             return (leftArray, rightArray);
-        }
-
-        private void ClearCompares(int left, int right)
-        {
-            for (int index = left; index < right; ++index)
-            {
-                _units[index].Compared = false;
-            }
         }
 
         private void UpdateVisualization(int index, int level)
