@@ -26,7 +26,8 @@ namespace Sorting
             new InsertionSort(),
             new MergeSort(),
             new QuickSort(),
-            new HeapSort()
+            new HeapSort(),
+            new RadixSort()
         };
 
         protected void Start()

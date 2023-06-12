@@ -49,6 +49,7 @@ public class SortScreen : MonoBehaviour
 
     public void OnSortPressed()
     {
+        ResetData();
         _sorter.Sort(_sortOption, _waitTime);
     }
 
@@ -63,14 +64,19 @@ public class SortScreen : MonoBehaviour
     public void OnResetPressed()
     {
         _sorter.Reset();
-        _sortData.Reset();
-        _comparisonsCountText.SetText($"{_sortData.Comparisons}");
-        _assignmentsCountText.SetText($"{_sortData.Assignments}");
+        ResetData();
     }
 
     public void OnSortDropdownValueChanged(int index)
     {
         OnResetPressed();
         _sortOption = _sortTypeDropdown.options[index].text;
+    }
+
+    private void ResetData()
+    {
+        _sortData.Reset();
+        _comparisonsCountText.SetText($"{_sortData.Comparisons}");
+        _assignmentsCountText.SetText($"{_sortData.Assignments}");
     }
 }
